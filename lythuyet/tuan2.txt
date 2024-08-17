@@ -1,0 +1,93 @@
+Các kỹ thuật phân tích dữ liệu cơ bản
+
+1. Hàm tổng hợp
+count: biến định tính
+các hàm bên dưới dùng được cho biến định lượng
+min
+max
+average / mean
+sum 
+
+chủ yếu phân tích định lượng
+
+2. Thống kê 
+để mô tả dữ liệu 
+
+Những đại lượng đo lường mức độ tập trung: giúp có 1 bức tranh vê dữ liệu phân bổ như thế nào 
+
+Những đại lượng đo lường mức độ phân tán / ổn định của dữ liệu: 
+
+2.1 Đo lường mức độ tập trung 
+count 
+min 
+max
+average / mean: Giá trị trung bình có nhiều cách tính, đay là đại lượng đại biểu / đại diện cho tập dữ liệu số. Còn được gọi là giá trị kì vọng
+
+VD: 5,7,5,6,5 -> avg: 5.6
+VD: 5,7,5,6,100 -> avg: 24.6
+
+Giá trị trung bình rất nhạy cảm (chịu ảnh hưởng lớn) bởi giá trị bất thường (giá trị ngoại lai, ngoại biên)
+Do đó nếu muốn sử dụng giá trị trung bình làm giá trị đại biểu thì ta phải xử lý những giá trị ngoại lai, ngoại biên
+
+median: trung vị: trung vị là giá trị chia tập dữ liệu làm 2 phần có số lượng bằng nhau
+VD: công ty 100 nv. Trung vị lương là 12tr. 
+Để tính trung vị thì tập dữ liệu phải được sắp xếp tăng dần
+VD: 5,5,7,8,9,100 -> trung vị là 8
+VD: 5,5,7,8,9,100 -> trung vị là 7.5
+
+Trung vị không bị ảnh hưởng bởi các giá trị ngoại biên
+
+mode: yếu vị: chỉ ra đại đa số phần tử có giá trị bằng mode
+VD: công ty có mode doanh số hằng tháng là 500tr -> đại đa số các đại lý có doanh thu hằng tháng là 500tr
+VD: 2,2,2,2,2,5,6,7,1000 -> yếu vị = 2
+
+Mode không chịu ảnh hưởng bởi các giá trị ngoại biên
+
+VD: 2,2,4,4,5,6 -> không có mode
+
+Tập dữ liệu có thể có hoặc không có mode
+
+Phân vị: (p) là p - 1 giá trị chia tập dữ liệu thành p phần có số lượng giá trị bằng nhau
+- Tứ phân vị: q1, q2, q3 
+IQR = q3 - q1 
+là khoảng các giá trị bình thường
+
+q1 là 0.25
+q2 là 0.5
+q3 là 0.75
+
+Trong tứ phân vị thì q2 la median
+
+- Thập phân vị: p1,p2,...p9
+
+
+
+2.2 Đo lường mức độ phân tán (ổn định)
+phân tán cao -> ổn định thấp -> khó quyết định -> giá trị trung bình không đại diện (không còn ý nghĩa) cho tập dữ liệu
+phân tán thấp -> ổn định cao -> dễ quyết định -> trung bình có ý nghĩa đại diện
+
+Range = max - min 
+Range càng cao -> phân tán cao 
+Range càng thấp -> phân tán thấp
+
+IQR = q3 - q1
+
+deltaD
+
+Variance (phương sai): phương sai được xem là giá trị hoàn hảo để đánh giá mức độ phân tán của tập dữ liệu
+
+Standard deviation: độ lệch chuẩn 
+
+Để so sánh mức độ phân tán của 2 tập dữ liệu số ta lưu ý: 
+- Nếu giá trị trung bình của 2 tập dữ liệu xấp xỉ bằng nhau thì ta so sánh độ lệch chuẩn của 2 tập dữ liệu để đưa ra kết luận.
+- Tuy nhiên nếu gtri tb của 2 tập dl có sai khác lớn thì ta dùng gtri CV (Coefficient of Variance)
+CV = Standard / gtri tb 
+
+
+Trực quan hóa dữ liệu
+Mục đích: khám phá insight 
+
+Biểu đồ cột, count plot / column: biểu diễn độ lớn, so sánh độ lớn giữa các biến số
+Pie / donut: biểu diễn tỉ lệ về độ lớn 
+Scatter: phân tán: là biểu đồ dùng cho 2 dữ liệu định lượng biểu diễn theo trục Ox và Oy nhắm thể hiện sự tương quan (quan hệ) của 2 dữ liệu
+Line graph: dùng để biểu diễn độ lớn của dữ liệu có quy định thứ tự, điển hình là dữ liệu theo thời gian 
