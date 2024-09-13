@@ -1,0 +1,62 @@
+Phân tích suy diễn
+
+Data: tổng hợp thống kê, (sample)
+Phần lớn ngoài kia gọi là population
+
+Chỉ phân tích data không phân tích population vì: 
+Máy không đủ mạnh
+Không đủ chi phí
+
+Suy diễn dùng để dựa vào kết quả thống kê, phân tích ở sample để xem population sẽ như thế nào, phù hợp hay không ?
+
+H0: giả thuyết suy diễn, lời suy diễn
+alpha: mức sai lầm: 10%, 5%, 1% (5% là phổ biến nhất, thường làm mặc định)
+Conf: mức độ tin cậy: 90%, 95%, 99% (95% là phổ biến nhất, thường làm mặc định)
+
+Dùng phần mềm tính toán sau khi thống kê, phân tích tính ra p-value
+	alpha > p-value: reject H0 (bác bỏ suy diễn này)
+	alpha <= p-value: accept H0 (chấp nhận suy diễn này)
+	
+1.One sample T-Test (số lượng sample < 30)
+H0: trung bình = x
+
+2.One sample Z-Test (số lượng sample >= 30)
+H0: trung bình = x
+
+3.Two sample T-Test (số lượng sample < 30)
+H0: trung bình x = trung bình y
+
+4.Two sample Z-Test (số lượng sample > 30)
+H0: trung bình x = trung bình y
+
+5.Kiểm định tương quan
+	r > 0: tương quan thuận (đồng biến)
+	r = 0: không tương quan
+	r < 0: tương quan nghịch (nghịch biến)
+	abs(r): tính mức độ tương quan (trên mẫu)
+		< 0.5: yếu
+		0.5 - 0.65: trung bình
+		0.65 - 0.8: tốt
+		0.8 - 0.9: rất tốt
+		> 0.95: hoàn hảo
+H0: r = 0
+
+
+6. Fisher 
+Kiểm tra độc lập của 2 biến định tính mà giá trị thể hiện của 2 biến là nhị phân
+lập bảng crosstab
+H0 : 2 biến độc lập
+
+7. Kiểm định Chi-square Test: 
+giống Fisher nhưng giá trị thể hiện của biến không phải là nhị phân
+H0: 2 biến độc lập
+
+8. Oneway Anova 
+Kiểm tra trung bình giá trị theo nhóm 
+H0: trung bình trên nhóm 1 = trung bình trên nhóm 2 = trung bình trên nhóm m.
+
+Phân tích hồi quy tuyến tính
+
+9. Phân tích sự ảnh hưởng tác động giữa các biến số (định lượng)
+
+Hàm hồi quy tuyến tính: A0 + A1 x X
