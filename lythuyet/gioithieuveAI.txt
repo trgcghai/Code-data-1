@@ -1,0 +1,81 @@
+AI là lĩnh vực phát triển mạnh mẽ
+3 giai đoạn: unit AI -> AGI (artificial general intelligence) -> Super AI
+
+Một số bài toán unit AI giải quyết:
+Phân lớp
+Hồi quy
+Gom cụm
+..
+
+Quy trình cơ bản giải quyết bài toán AI
+1. Xử lý dữ liệu
+2. Huấn luyện mô hình
+3. Đánh giá mô hình
+4. Triển khai mô hình 
+5. Nhận phản hồi
+
+Giới thiệu bài toán phân lớp - Classification
+
+Một số bài toán phân lớp
+Phân lớp email spam hoặc không
+Phân lớp bệnh nhân
+Nhận diện các loài hoa, động vật
+Nhận diện khách hàng có rủi ro cho vay không
+Nhận diện các giao dịch ảo qua thẻ tín dụng
+Nhận tiện tin giả
+
+
+Các kỹ thuật phân lớp sử dụng học máy
+
+Mô tả kỹ thuật học máy: Có 3 thành phần
+- Input (Giá trị đầu vào), feature (đặc trưng): thông tin cần biết để đưa vào mô hình
+- Mô hình (concept): có thể là hàm toán học f(x), hệ thống các kĩ thuật, thuật toán,...
+- Output (Giá trị đầu ra), target (mục tiêu), label (nhãn): là giá trị kết quả đạt được sau khi mô hình hoàn thành tính toán
+
+Dựa vào tập dữ liệu lịch sử, có 2 loại học máy
+- Học giám sát - supervise
+- Học không giám sát - unsupervise
+
+Các xác nhận loại học máy: dựa vào tập dữ liệu (input, output)
+- input và output có sẵn trong lịch sử -> dùng học máy có giám sát supervise
+- input hoặc output không nằm trong dữ liệu lịch sử -> dùng học máy không giám sát unsupervise
+
+Các kĩ thuật học khác
+- Học bán giám sát
+- Học tăng cường
+
+K-NN (lazy learning)
+K nearest neighbors là một trong những thuật toán học có giám sát đơn giản nhất được sử dụng nhiều 
+
+KNN không học tập gì. Chỉ lưu lại toàn bộ dữ liệu. Khi có dữ liệu mới, nó sẽ so sánh với các nhãn đã được tạo dựa trên dữ liệu lịch sử.
+
+Dựa trên K người gần điểm X nhất điểm phán đoán.
+
+Các thuật toán tính khoảng cách
+
+Euclidean -> mặc định
+
+Manhattan
+
+Minkowski
+
+Ưu điểm KNN
+- đơn giản, dễ giải thích
+
+Nhược điểm KNN
+- trở nên rất chậm khi số lượng dữ liệu tăng
+- tốn bộ nhớ
+- với K nhỏ dễ bị kết quả không chính xác
+
+
+Các phương pháp đánh giá mô hình:
+
+Phương pháp hệ số độ chính xác (accuracy)
+
+Phương pháp confusion matrix
+
+Phương pháp dùng độ đo TPR, FNR, FPR, TNR
+
+Phương pháp dùng biểu đồ AUC ROC
+
+Phương pháp precision recall f1
