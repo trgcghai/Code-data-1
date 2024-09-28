@@ -51,7 +51,7 @@ KNN không học tập gì. Chỉ lưu lại toàn bộ dữ liệu. Khi có d�
 
 Dựa trên K người gần điểm X nhất điểm phán đoán.
 
-Các thuật toán tính khoảng cách
+Các thuật toán tính khoảng cách: các độ đo
 
 Euclidean -> mặc định
 

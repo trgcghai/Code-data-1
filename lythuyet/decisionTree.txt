@@ -1,0 +1,63 @@
+Cây quyết định
+
+là thuật toán học có giám sát
+
+là cấu trúc dạng cây ở đó đúc trích tri thức từ tập dữ liệu và xây thành dạng cây
+
+Ví dụ: dựa vào các yếu tố thời tiết (mưa, nắng, gió,..) sau đó quyết định có đi chơi hay không
+
+Trong cây quyết định thì các node là các cột trong tập dữ liệu, các lá là các quyết định
+
+Giải thuật kinh điển nhất để xây quyết định, Mỗi giải thuật sẽ có các đại lượng liên quan để xây giải thuật: entropy, information game, gain ratio,
+gini inpurity
+entropy xài chung cho cả 3
+- ID3: information game
+- C45: gain ratio
+- CART: gini inpurity
+
+GIẢI THUẬT ID3
+
+trong dữ liệu lophoc.xlsx
+
+tập dữ liệu đặc trưng - features là sức khỏe và thời tiết
+target là kết quả (có và không)
+
+việc lựa chọn đặc trưng để chọn làm yếu tố quyết định thì cần độ đo
+
+- Entropy: là hàm số mà giá trị của hàm số thể hiện thước đo của độ hỗn loạn dữ liệu,
+entropy càng lớn thì càng hỗn loạn
+
+Sự hỗn loạn về dữ liệu: Sẽ làm cho thông tin bị vẫn đục, bị hỗn loạn, dễ bị nhiễu, chứa nhiều thông tin,
+thông tin rất đa dạng -> khó đưa ra quyết định
+Sự hỗn loạn thấp: khi đó chất lượng dữ liệu càng tinh khiết, nhưng ngược lại, sự đang dạng về thông tin sẽ 
+giảm dần -> dễ đưa ra quyết định
+
+Cách tính entropy: tổng của âm xác suất của các phần trong tập dữ liệu nhân với log2 của xác suất
+E(s) = Σ - Pi * Log2(Pi)
+Pi là xác suất của các phần
+
+VD: yes = 0.7, no = 0.3
+E(s) = - (0.7) * log2(0.7) - (0.3) * log2(0.3)
+
+Nếu mẫu chỉ có 2 loại bằng nhau (giá trị là nhị phân) (VD: yes = 0.5, no = 0.5) thì entropy bằng 1 -> không đưa ra quyết định được
+
+Tính entropy có trọng số (WE)
+là tính entropy theo các nhóm được chia ra từ tập ban đầu
+
+VD: tập cha: 10, yes = 5, no = 5.
+tập con 1: values = 7, yes = 2, no = 5, entropy = 0.87
+tập con 2: values = 5, yes = 2, no = 3, entropy = 0.97
+WE = (số lượng tập con / số lượng tập cha) * entropy tập con + (số lượng tập con / số lượng tập cha) * entropy tập con
+
+- Information gain là hàm số biểu diễn mức độ giảm xuống của entropy. Mức độ giảm càng cao thì entropy mới càng thấp -> dễ đưa ra quyết định.
+IG(parent | children) = E(parent) - WE(child1 | child2)
+
+Để chọn lựa đặc trưng để phân chia lựa chọn trong cây quyết định ta so sánh IG của chúng và chọn cái IG cao nhất.
+
+Trong các giải thuật decision tree thường có đặc trưng tham lam: khi entropy còn cao (!= 0) thì sẽ tiếp tục chia tiếp. 
+Dẫn đế 1 lúc nào đó tất cả node lá đều khớp hết với tập dữ liệu lịch sử, hay nói cách khác mô hình học quá kĩ (overfitting)
+
+Một trong những vấn đề của cây là tìm điểm dừng để cây có chiều cao vừa phải nhằm thể hiện được sự tổng quát hóa về tri thức rút trích được trong tập 
+dữ liệu.  
+
+IG = 0 -> không thu được thông tin gì khi chia / phân nhánh cây. 
