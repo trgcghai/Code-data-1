@@ -1,0 +1,108 @@
+Giải thuật classification có giám sát (target trong tập dữ liệu lịch sử)
+Thuần về xác suất
+
+Nguyên lý Bayes 
+
+P (class|data) = P(class) * P(class|data) / P(data)
+
+class: lớp phán đoán
+data: dữ liệu input
+
+posterior = prior * likelihood / evidence
+
+P(male|drew): biết người là drew là nam ?
+P(male|drew) = P(male) * P(drew|male) / P(drew)
+
+P(female|drew): biết người là drew là nữ ?
+P(female|drew) = P(female) * P(drew|female) / P(drew)
+
+
+Vì mẫu số giống nhau nên chỉ cần so sánh tử số:
+
+P(male): 3 / 8
+P(drew|male): 1 / 3
+P(drew):  3 / 8
+P(female): 5 / 8
+P(drew|female): 2 / 5
+
+P(male|drew) = (3 / 8 * 1 / 3) = 0.125
+P(male|drew) = (5 / 8 * 2 / 5) = 0.25
+
+Vì female lớn hơn male nên dự đoán là female
+
+Phân lớp kết quá = argmax P(class) * P(data|class)
+
+Bài tập:
+
+từ outlook -> đưa ra quyết định đi chơi golf
+
+outlook : rainy, overcast, sunny
+target: yes, no
+
+P(yes) = 9 / 14
+P(no) = 5 / 14
+
+P(rainy|yes) = 2 / 9
+P(rainy|no) = 3 / 5
+P(overcast|yes) = 4 / 9
+P(overcast|no) = 0 / 5
+P(sunny|yes) = 3 / 9
+P(sunny|no) = 2 / 5
+
+P(sunny) = 5 / 14
+P(overcast) = 4 / 14
+P(rainy) = 5 / 14
+
+Nếu thời tiết u ám (overcast) thì có đi chơi không ?
+P(yes|overcast) = P(yes) * p(overcast|yes) / P(overcast) = 0.285 / (4/14) = 1
+P(no|overcast) = P(no) * p(overcast|no) / P(overcast) = 0 / (4/14) = 0
+
+Vì yes lớn hơn nên sẽ có đi chơi
+
+DEAL WITH MULTIPLE ATTRIBUTES
+P(male|height, eye, hair) = P(male) * P(height, eye, hair|male) / P(height, eye, hair)
+
+Không thể tính được
+Phải giải định ngây thơ (naive): P(height, eye, hair|male) = P(height|male) * P(eye|male) * P(hair|male)
+C = argmax P(class) * Tích(P(đặc trưng | class))
+
+Bài tập:
+Cho dữ liệu gồm name, height, eye color, hair length -> suy ra giới tính male, female
+Xây dựng mô hình từ height, eye, hair -> sex
+
+P(male) = 3 / 8
+P(female) = 5 / 8
+
+Height
+P(height > 170|male) = 2 / 3
+P(height < 170|male) = 1 / 3
+P(height > 170|female) = 2 / 5
+P(height < 170|female) = 3 / 5
+
+P(height > 170) = 4 / 8
+P(height < 170) = 4 / 8
+
+Eye
+P(blue|male) = 2 / 3
+P(brown|male) = 1 / 3
+P(blue|female) = 3 / 5
+P(brown|female) = 2 / 5
+
+P(blue) = 5 / 8
+P(brown) = 3 / 8
+
+Hair
+P(short|male) = 2 / 3
+P(long|male) = 1 / 3
+P(short|female) = 1 / 5
+P(long|female) = 4 / 5
+
+P(long) = 5 / 8
+P(short) = 3 / 8
+
+P(male|yes, brown, short) = P(male) * P(yes|male) * P(brown|male) * P(short|male) = 0.05
+P(female|yes, brown, short) = P(female) * P(yes|female) * P(brown|female) * P(short|female) = 0.02
+
+Mẫu số: P(yes, brown, short) = P(yes) * P(brown) * P(short) = 4/8 * 3/8 * 3/8 = 9 / 128
+
+Vì male > female nên kết luận là male 
