@@ -1,0 +1,65 @@
+Bài toán: cho biết độ ẩm, dự đoán hiện tượng
+hiện tượng = f(độ ẩm)
+
+hiện tượng: target
+độ ẩm: đặc trưng (feature)
+
+Nếu dự đoán hiện tượng thời tiết là nóng hay lạnh ? -> bài toán phân lớp
+Nếu dự đoán hiện tượng bao nhiêu độ C -> bài toán hồi quy
+
+Suy ra:
+Nếu target là định tình -> phân lớp
+Nếu target là định lượng -> hồi quy
+
+Về cơ bản thì phân lớp và hồi quy đều là học có giám sát (supervised learning): Target có trong tập dữ liệu lịch sử
+
+Các hàm số toán học:
+- Hàm tuyến tính đơn đơn biến: y = b0 + b1 * x
+VD: nhiệt độ = b0 + b1 * độ ẩm
+
+Mấu chốt là tìm b0 và b1
+b0 là intercept 
+b1 là slope
+
+Để lập được hàm thì phải khảo sát sự tương quan tuyến tính giữa 2 biến
+trong mô hình tương quan
+biến respone, dependent: nhiệt độ (y)
+biến explanatory, independent: độ ẩm (x)
+Khi nói về mối quan hệ thì 
+- Chúng có tuyến tính không ?
+- Tương quan nghịch hay tương quan thuận ?
+- Mức độ tương quan tuyến tính ?
+
+Để biến mức độ tương quan tuyến tính cần có hệ số tương quan tuyến tính R(x,y) [-1, 1]
+R < 0 thì tương quan nghịch
+R = 0 không tương quan -> không kết luận được sự ảnh hưởng của 2 biến
+R > 0 thì tương quan thuận
+|R| thể hiện mức độ tương quan, càng gần 1 thì càng mạnh, càng gần 0 thì càng yếu
+
+
+Khi xây dựng mô hình thì y trong hàm gọi là y dự báo, kí hiệu y^
+
+y^ = b0 + b1 * x
+
+y^: y dự báo, biến phụ thuộc
+Y: y thực tế 
+X: biến độc lập
+
+
+Bài toán AI bản chất là bài toán tối ưu (tìm đáp án tốt nhất)
+Làm sao giải quyết bài toán tối ưu ? 
+Để giải quyết bài toán tối ưu cần phải mô hình hóa toán học, vì toán học có đạo hàm
+
+AI -> toán học -> đạo hàm -> tối ưu
+
+Khoảng cách giữa y^ và Y gọi là resdiual (phần dư, phần thiếu)
+Residual = Y - y^ (thực tế - dự báo)
+
+Làm sao tối ưu nhất -> cho residual nhỏ nhất
+|e1| + |e2| + .. + |en|: nhỏ nhất 
+-> e^1 + .... en^2: nhỏ nhất-
+
+Sử dụng bình phương thay vì trị tuyệt đối để dễ tính giá trị nhỏ nhất
+Sử dụng bình phương -> triệt tiêu giá trị nhỏ, phóng đại giá trị lớn
+
+Đi tìm giá trị cực tiểu của hàm Sigma(ei^2) i: 1 -> n
